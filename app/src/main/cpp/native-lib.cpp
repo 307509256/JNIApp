@@ -93,47 +93,6 @@ extern "C"
         return resultSum;
     }
 
-
-    /*JNIEXPORT jobjectArray JNICALL
-    Java_com_example_nsbr_hellojniapp_MainActivity_getAllProcessPid(JNIEnv*env, jobject obj)
-    {
-
-    //Create a vector (an array) of Strings and add items to it
-        std::vector<std::string>vec;
-
-        vec.push_back("Ranjan.B.M");
-
-        vec.push_back("Mithun.V");
-
-        vec.push_back("Preetham.S.N");
-
-        vec.push_back("Karthik.S.G");
-
-        cout<<vec[0];
-
-        cout<<vec[0];
-
-    //Instantiate your object Array and return it!
-        jclass clazz = (env)->FindClass("java/lang/String");
-
-        jobjectArray objarray = (env)->NewObjectArray(vec.size() ,clazz ,0);
-
-        for(int i = 0; i < vec.size(); i++) {
-
-            string s = vec[i];
-
-            cout<<vec[i]<<endl;
-
-            jstring js = (env)->NewStringUTF(s.c_str());
-
-            (env)->SetObjectArrayElement(objarray , i , js);
-
-        }
-
-        return objarray;
-
-    }*/
-
 }
 
 

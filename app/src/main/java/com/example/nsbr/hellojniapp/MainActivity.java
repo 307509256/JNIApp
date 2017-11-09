@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         // get simple string from native
         String msg = getMessageFromNative();
         msg += "\n" + stringFromJNI();
+        msg += "\n" + getAllProcessPid()[1];
 
         // access class member in native code and return result to caller
         MeshData obj = new MeshData(3);
@@ -54,4 +55,5 @@ public class MainActivity extends AppCompatActivity {
     public native int invokeMemberFuncFromNative(MeshData obj);
     public native MeshData createObjectFromNative(int param);
     public native int processObjectArrayFromNative(MeshData[] objArray);
+    public native String[] getAllProcessPid();
 }
