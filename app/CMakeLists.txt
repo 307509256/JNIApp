@@ -26,7 +26,26 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/my-lib.cpp )
+             src/main/cpp/my-lib.cpp)
+
+add_library( # Sets the name of the library.
+             Time
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/Time.cpp)
+
+add_library( # Sets the name of the library.
+             android
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/android.cpp)
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by

@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
         System.loadLibrary("my-lib");
+        System.loadLibrary("android");
     }
 
     @Override
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         // get simple string from native
         String msg = getMessageFromNative();
-        msg += "\n" + stringFromJNI();
+        msg += "\n" + stringFromJNI() + " / date: " + getDay(2020, 10, 21);
         msg += "\n" + getAllProcessPid()[1];
 
         // access class member in native code and return result to caller
@@ -48,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
+    private native String stringFromJNI();
 
-    public native String getMessageFromNative();
-    public native float getMemberFieldFromNative(MeshData obj);
-    public native int invokeMemberFuncFromNative(MeshData obj);
-    public native MeshData createObjectFromNative(int param);
-    public native int processObjectArrayFromNative(MeshData[] objArray);
-    public native String[] getAllProcessPid();
+    private native String getMessageFromNative();
+    private native float getMemberFieldFromNative(MeshData obj);
+    private native int invokeMemberFuncFromNative(MeshData obj);
+    private native MeshData createObjectFromNative(int param);
+    private native int processObjectArrayFromNative(MeshData[] objArray);
+    private native String[] getAllProcessPid();
+    private native int getDay(int year, int month, int day);
 }
