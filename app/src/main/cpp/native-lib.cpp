@@ -3,17 +3,12 @@
 
 
 int getFacetCount(JNIEnv *env, jobject obj)
-
 {
-
     jclass cls = env->GetObjectClass(obj);
-
     jmethodID methodId = env->GetMethodID(cls, "getFacetCount", "()I");
-
     int result = env->CallIntMethod(obj, methodId);
 
     return result;
-
 }
 
 
@@ -24,13 +19,6 @@ extern "C"
     Java_com_example_nsbr_hellojniapp_MainActivity_getMessageFromNative(JNIEnv *env, jobject callingObject)
     {
         return env->NewStringUTF("Native code rules!");
-    }
-
-    JNIEXPORT jstring JNICALL
-    Java_com_example_nsbr_hellojniapp_MainActivity_stringFromJNI(JNIEnv *env,jint nn)
-    {
-        std::string hello = "Hello from C++";
-        return env->NewStringUTF(hello.c_str());
     }
 
     JNIEXPORT jfloat JNICALL

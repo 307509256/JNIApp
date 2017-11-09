@@ -9,6 +9,7 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+        System.loadLibrary("my-lib");
     }
 
     @Override
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         // get simple string from native
         String msg = getMessageFromNative();
+        msg += "\n" + stringFromJNI();
 
         // access class member in native code and return result to caller
         MeshData obj = new MeshData(3);
@@ -30,14 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // process object array in native code and return result to caller
-
-        MeshData[] objArray = new MeshData[]
-
-                {
-                        new MeshData(10),
-                        new MeshData(20)
-                };
-
+        MeshData[] objArray = new MeshData[]{new MeshData(10), new MeshData(20)};
 
         int arrayRes = processObjectArrayFromNative(objArray);
         msg += "\n\nResult processObjectArrayFromNative: " + arrayRes;
@@ -52,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI(int nn);
+    public native String stringFromJNI();
 
     public native String getMessageFromNative();
     public native float getMemberFieldFromNative(MeshData obj);
