@@ -52,10 +52,16 @@ public class MainActivity extends AppCompatActivity {
     private native String stringFromJNI();
 
     private native String getMessageFromNative();
+
     private native float getMemberFieldFromNative(MeshData obj);
+
     private native int invokeMemberFuncFromNative(MeshData obj);
+
     private native MeshData createObjectFromNative(int param);
+
     private native int processObjectArrayFromNative(MeshData[] objArray);
+
     private native String[] getAllProcessPid();
+
     private native int getDay(int year, int month, int day);
 }
